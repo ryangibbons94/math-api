@@ -27,7 +27,7 @@ function betweenTwoPerfectSquares() {
 }
 
 function squareRootSimple() {
-  let num1 = Math.floor(Math.random() * 15);
+  let num1 = Math.ceil(Math.random() * 15);
   let num2 = num1 ** 2;
   let random = Math.floor(Math.random() * 2);
   return random > 0
