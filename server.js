@@ -94,7 +94,7 @@ function twoStepEquation() {
   return random > 0
     ? {
         question: `What is the value of x? ${num1}x+${num2}=${
-          num1 * num3 - num2
+          num1 * num3 + num2
         }`,
         correctAnswer: num3,
         answers: [
@@ -106,7 +106,7 @@ function twoStepEquation() {
       }
     : {
         question: `What is the value of x? ${num1}x-${num2}=${
-          num1 * num3 + num2
+          num1 * num3 - num2
         }`,
         correctAnswer: num3,
         answers: [
