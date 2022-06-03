@@ -7,21 +7,23 @@ const cors = require("cors");
 app.use(cors());
 
 function betweenTwoPerfectSquares() {
-  let num = Math.floor(Math.random() * 225) ** 0.5;
+  let num = Math.floor(Math.random() * 400) ** 0.5;
   let min = Math.floor(num);
   let max = Math.ceil(num);
-  return {
-    question: `Which two whole numbers is the square root of ${Math.round(
-      num ** 2
-    )} between?`,
-    correctAnswer: `${min} and ${max}`,
-    answers: [
-      `${min} and ${max}`,
-      `${min + 2} and ${max + 2}`,
-      `${min + 1} and ${max + 1}`,
-      `${min - 1} and ${max - 1}`,
-    ],
-  };
+  return num === parseInt(num)
+    ? betweenTwoPerfectSquares()
+    : {
+        question: `Which two whole numbers is the square root of ${Math.round(
+          num ** 2
+        )} between?`,
+        correctAnswer: `${min} and ${max}`,
+        answers: [
+          `${min} and ${max}`,
+          `${min + 2} and ${max + 2}`,
+          `${min + 1} and ${max + 1}`,
+          `${min - 1} and ${max - 1}`,
+        ],
+      };
 }
 
 function squareRootSimple() {
@@ -154,6 +156,9 @@ app.get("/api/:name", (request, response) => {
   const questiontype = request.params.name;
   if (questions[questiontype]) {
     response.json(questions[questiontype]);
+  } else if (questiontype === "random") {
+    var keys = Object.keys(questions);
+    response.json(questions[keys[(keys.length * Math.random()) << 0]]);
   } else {
     response.json(questions["unknown"]);
   }
