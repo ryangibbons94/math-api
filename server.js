@@ -44,7 +44,7 @@ function squareRootSimple() {
     : {
         question: `What is the square root of ${num2}?`,
         correctAnswer: num1,
-        answer: [
+        answers: [
           num1,
           num1 + Math.floor(Math.random() * 5),
           num1 - Math.floor(Math.random() * 5),
