@@ -151,7 +151,6 @@ app.get("/api/:name", (request, response) => {
     equation: equation,
     squareRoot: squareRoot,
     proportional: proportional,
-    unknown: "unknown question type",
   };
   const questiontype = request.params.name;
   if (questions[questiontype]) {
@@ -160,7 +159,7 @@ app.get("/api/:name", (request, response) => {
     var keys = Object.keys(questions);
     response.json(questions[keys[(keys.length * Math.random()) << 0]]);
   } else {
-    response.json(questions["unknown"]);
+    response.json("not a question type");
   }
 });
 
