@@ -137,6 +137,28 @@ app.get("/api/", (request, response) => {
   response.json(questions);
 });
 
+app.get("/api/:name", (request, response) => {
+  let betweenTwoSquares = betweenTwoPerfectSquares();
+  let triangle = missingAngle();
+  let equation = twoStepEquation();
+  let squareRoot = squareRootSimple();
+  let proportional = proportionalOrNot();
+  const questions = {
+    triangle: triangle,
+    betweenTwoSquares: betweenTwoSquares,
+    equation: equation,
+    squareRoot: squareRoot,
+    proportional: proportional,
+    unknown: "unknown question type",
+  };
+  const questiontype = request.params.name;
+  if (questions[questiontype]) {
+    response.json(questions[questiontype]);
+  } else {
+    response.json(questions["unknown"]);
+  }
+});
+
 app.listen(process.env.PORT || PORT, () => {
   console.log(
     `the server is now running on port ${PORT}, you better go catch it`
