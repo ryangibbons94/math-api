@@ -38,7 +38,7 @@ function squareRootSimple() {
           num2,
           num2 + Math.floor(Math.random() * 50),
           num2 + Math.floor(Math.random() * 50),
-          num1 ** 0.5,
+          (num1 ** 0.5).toFixed(3),
         ],
       }
     : {
