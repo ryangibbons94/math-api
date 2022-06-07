@@ -38,13 +38,11 @@ function squareRootSimple() {
   let setTwoAnswer2 = num1 + Math.floor(Math.random() * 5);
   let setTwoAnswer3 = num1 - Math.floor(Math.random() * 5);
   let setTwoAnswer4 = num2 ** 2;
+  const answers = [setOneAnswer1, setOneAnswer2, setOneAnswer3, setOneAnswer4];
+  const answers2 = [setTwoAnswer1, setTwoAnswer2, setTwoAnswer3, setTwoAnswer4];
   if (
-    setOneAnswer1 != setOneAnswer2 &&
-    setOneAnswer2 != setOneAnswer3 &&
-    setOneAnswer3 != setOneAnswer4 &&
-    setTwoAnswer1 != setTwoAnswer2 &&
-    setTwoAnswer2 != setTwoAnswer3 &&
-    setTwoAnswer3 != setTwoAnswer4
+    answers.length === new Set(answers).size &&
+    answers2.length === new Set(answers2).size
   ) {
     return random > 0
       ? {
