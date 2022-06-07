@@ -30,27 +30,36 @@ function squareRootSimple() {
   let num1 = Math.ceil(Math.random() * 15);
   let num2 = num1 ** 2;
   let random = Math.floor(Math.random() * 2);
-  return random > 0
-    ? {
-        question: `What is ${num1} squared?`,
-        correctAnswer: num2,
-        answers: [
-          num2,
-          num2 + Math.floor(Math.random() * 50),
-          num2 + Math.floor(Math.random() * 50),
-          (num1 ** 0.5).toFixed(3),
-        ],
-      }
-    : {
-        question: `What is the square root of ${num2}?`,
-        correctAnswer: num1,
-        answers: [
-          num1,
-          num1 + Math.floor(Math.random() * 5),
-          num1 - Math.floor(Math.random() * 5),
-          num2 ** 2,
-        ],
-      };
+  let setOneAnswer1 = num2;
+  let setOneAnswer2 = num2 + Math.floor(Math.random() * 50);
+  let setOneAnswer3 = num2 + Math.floor(Math.random() * 50);
+  let setOneAnswer4 = (num1 ** 0.5).toFixed(3);
+  let setTwoAnswer1 = num1;
+  let setTwoAnswer2 = num1 + Math.floor(Math.random() * 5);
+  let setTwoAnswer3 = num1 - Math.floor(Math.random() * 5);
+  let setTwoAnswer4 = num2 ** 2;
+  if (
+    setOneAnswer1 != setOneAnswer2 &&
+    setOneAnswer2 != setOneAnswer3 &&
+    setOneAnswer3 != setOneAnswer4 &&
+    setTwoAnswer1 != setTwoAnswer2 &&
+    setTwoAnswer2 != setTwoAnswer3 &&
+    setTwoAnswer3 != setTwoAnswer4
+  ) {
+    return random > 0
+      ? {
+          question: `What is ${num1} squared?`,
+          correctAnswer: num2,
+          answers: [setOneAnswer1, setOneAnswer2, setOneAnswer3, setOneAnswer4],
+        }
+      : {
+          question: `What is the square root of ${num2}?`,
+          correctAnswer: num1,
+          answers: [setTwoAnswer1, setTwoAnswer2, setTwoAnswer3, setTwoAnswer4],
+        };
+  } else {
+    squareRootSimple();
+  }
 }
 
 function missingAngle() {
@@ -61,7 +70,12 @@ function missingAngle() {
     ? {
         question: `Two angles in a triangle are ${num1} degrees and ${num2} degrees, what is the measure of the third angle?`,
         correctAnswer: num3,
-        answers: [num3, num3 + 10, 180, Math.floor(Math.random() * 180)],
+        answers: [
+          num3,
+          num3 + Math.ceil(Math.random() * 50),
+          num3 - Math.ceil(Math.random() * 50),
+          Math.floor(Math.random() * 180),
+        ],
       }
     : missingAngle();
 }
