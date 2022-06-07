@@ -10,6 +10,8 @@ Two-Step Equation - "What is the value of x? 13x+33=72"
 
 Simple Square Root Question - "What is the square root of 225?"
 
+Question Regarding Whether an Equation Respresents a Proportional or Non-Proportional Relationship - "Does the equation y=6x represent a proportional relationship?"
+
 **Link to frontend that uses this API:** https://math-quiz-app.netlify.app/
 
 ## Endpoints
